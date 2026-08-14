@@ -1,6 +1,6 @@
 ---
 title: 2003 Lonely Planet India guide
-slug: lonely-planet-india-guide
+slug: draft-1763500800000
 date: 2025-12-20
 ---
 

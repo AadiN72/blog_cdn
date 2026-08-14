@@ -1,6 +1,6 @@
 ---
 title: Raytracer book in F#
-slug: raytracer-book-in-fsharp
+slug: draft-1750118400000
 date: 2025-06-17
 ---
 

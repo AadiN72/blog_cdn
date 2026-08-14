@@ -1,6 +1,6 @@
 ---
 title: Dissecting an Android phishing trojan
-slug: dissecting-an-android-phishing-trojan
+slug: draft-1712016000000
 date: 2024-04-02
 ---
 

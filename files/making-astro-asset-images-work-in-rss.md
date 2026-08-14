@@ -1,6 +1,6 @@
 ---
 title: Making Astro asset images work in RSS
-slug: making-astro-asset-images-work-in-rss
+slug: draft-1760476800000
 date: 2026-02-08
 ---
 
