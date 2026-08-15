@@ -125,6 +125,31 @@ function moveImagesIntoMedia() {
     .filter((file) => fs.statSync(path.join(targetDir, file)).isFile());
 }
 
+function commitMediaBundle() {
+  execSync(`git commit -m "Add media for ${draftSlug}"`, {
+    cwd: repoRoot,
+    stdio: "inherit",
+  });
+}
+
+function finalizeGitPublish() {
+  const status = execSync("git status --porcelain", {
+    cwd: repoRoot,
+    encoding: "utf-8",
+  }).trim();
+
+  if (!status) {
+    return;
+  }
+
+  execSync("git add .", { cwd: repoRoot, stdio: "inherit" });
+  execSync(`git commit -m "Publish ${draftSlug}"`, {
+    cwd: repoRoot,
+    stdio: "inherit",
+  });
+  execSync("git push origin main", { cwd: repoRoot, stdio: "inherit" });
+}
+
 function hydrateMarkdown(content, imageUrls) {
   const imageLinks = findImageLinks(content);
 
@@ -158,6 +183,11 @@ async function publishDraft() {
     const imageFiles = moveImagesIntoMedia();
     console.log(`✓ Moved images into media/${draftSlug}`);
 
+    if (imageFiles.length > 0) {
+      commitMediaBundle();
+      console.log(`✓ Committed media bundle to GitHub`);
+    }
+
     const imageUrls =
       imageFiles.length > 0 ? await getImageUrlsFromGitHub() : new Map();
 
@@ -167,17 +197,8 @@ async function publishDraft() {
     fs.writeFileSync(publishedFile, hydratedContent);
     console.log(`✓ Wrote hydrated markdown to ${publishedFile}`);
 
-    execSync(`git add files/${draftSlug}.md`, {
-      cwd: repoRoot,
-      stdio: "inherit",
-    });
-
-    execSync(`git commit -m "Publish ${draftSlug}"`, {
-      cwd: repoRoot,
-      stdio: "inherit",
-    });
-
-    console.log(`✓ Committed markdown to GitHub: ${draftSlug}`);
+    finalizeGitPublish();
+    console.log(`✓ Committed and pushed markdown to GitHub: ${draftSlug}`);
 
     fs.unlinkSync(draftFile);
     console.log(`✓ Deleted draft: ${draftFile}`);
