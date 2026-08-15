@@ -14,6 +14,7 @@ import { fileURLToPath } from "url";
 import { execSync } from "child_process";
 import { Octokit } from "octokit";
 import dotenv from "dotenv";
+import readline from "readline/promises";
 
 dotenv.config({
   path: path.join(path.dirname(fileURLToPath(import.meta.url)), "..", ".env"),
@@ -24,12 +25,46 @@ const __dirname = path.dirname(__filename);
 const repoRoot = path.join(__dirname, "..");
 
 const args = process.argv.slice(2);
-const draftSlug = args[0];
 
+async function promptForDraft() {
+  const draftsDir = path.join(repoRoot, "drafts");
+  const files = fs
+    .readdirSync(draftsDir)
+    .filter((file) => file.endsWith(".md"))
+    .sort();
+
+  if (files.length === 0) {
+    console.error("No draft files found in drafts/");
+    process.exit(1);
+  }
+
+  console.log("Select a draft to publish:\n");
+  files.forEach((file, index) => {
+    console.log(`${index + 1}. ${file.replace(/\.md$/, "")}`);
+  });
+
+  const rl = readline.createInterface({
+    input: process.stdin,
+    output: process.stdout,
+  });
+
+  const answer = await rl.question("\nChoose a draft number: ");
+  rl.close();
+
+  const selection = Number(answer.trim());
+  const chosen = files[selection - 1];
+
+  if (!chosen) {
+    console.error("Invalid selection");
+    process.exit(1);
+  }
+
+  return chosen.replace(/\.md$/, "");
+}
+
+let draftSlug = args[0];
 if (!draftSlug) {
-  console.error("Error: Draft slug is required");
-  console.error("Usage: node publishDraft.js <draft-slug>");
-  process.exit(1);
+  draftSlug = await promptForDraft();
 }
 
 const githubConfig = {
