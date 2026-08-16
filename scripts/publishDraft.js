@@ -201,6 +201,19 @@ function moveImagesIntoMedia(content) {
 }
 
 function commitMediaBundle() {
+  const mediaStatus = execSync(`git status --porcelain -- media/${draftSlug}`, {
+    cwd: repoRoot,
+    encoding: "utf-8",
+  }).trim();
+
+  if (!mediaStatus) {
+    return;
+  }
+
+  execSync(`git add media/${draftSlug}`, {
+    cwd: repoRoot,
+    stdio: "inherit",
+  });
   execSync(`git commit -m "Add media for ${draftSlug}"`, {
     cwd: repoRoot,
     stdio: "inherit",
