@@ -273,8 +273,14 @@ async function publishDraft() {
     fs.writeFileSync(publishedFile, hydratedContent);
     console.log(`✓ Wrote hydrated markdown to ${publishedFile}`);
 
+    execSync("node scripts/generateRss.js", {
+      cwd: repoRoot,
+      stdio: "inherit",
+    });
+    console.log("✓ Regenerated rss.xml at repo root");
+
     finalizeGitPublish();
-    console.log(`✓ Committed and pushed markdown to GitHub: ${draftSlug}`);
+    console.log(`✓ Committed and pushed markdown and rss.xml to GitHub: ${draftSlug}`);
 
     fs.unlinkSync(draftFile);
     console.log(`✓ Deleted draft: ${draftFile}`);

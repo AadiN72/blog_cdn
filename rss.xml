@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<rss version="2.0">
+  <channel>
+    <title>Aadi's Blog</title>
+    <link>https://aadi-my.web.app</link>
+    <description>Latest posts from Aadi's blog</description>
+    
+    <item>
+      <title>How i made this blog</title>
+      <link>https://aadi-my.web.app/blog/draft-1786859329236</link>
+      <guid>https://aadi-my.web.app/blog/draft-1786859329236</guid>
+      <pubDate>2026-08-16T00:00:00.000Z</pubDate>
+      <description>Before I start my journey into robotics, I thought it would be fun to explain how I made this blog and how it actually works. Tech stack So, first: the million dollar question. The</description>
+    </item>
+    <item>
+      <title>Why do i need a blog</title>
+      <link>https://aadi-my.web.app/blog/draft-1786777259520</link>
+      <guid>https://aadi-my.web.app/blog/draft-1786777259520</guid>
+      <pubDate>2026-08-15T00:00:00.000Z</pubDate>
+      <description>If you&apos;re here, you&apos;ve probably already read my About Me page. I&apos;m a developer and a hobbyist robotics engineer. I&apos;ve never particularly liked writing blogs—I barely managed to get</description>
+    </item>
+  </channel>
+</rss>
