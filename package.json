@@ -1,0 +1,12 @@
+{
+  "name": "blog-cdn-manager",
+  "private": true,
+  "type": "module",
+  "bin": {
+    "manager": "scripts/manager.js"
+  },
+  "dependencies": {
+    "dotenv": "^17.2.2",
+    "octokit": "^5.0.5"
+  }
+}

@@ -293,7 +293,9 @@ async function publishDraft() {
     console.log("✓ Regenerated rss.xml at repo root");
 
     finalizeGitPublish();
-    console.log(`✓ Committed and pushed markdown and rss.xml to GitHub: ${draftSlug}`);
+    console.log(
+      `✓ Committed and pushed markdown and rss.xml to GitHub: ${draftSlug}`,
+    );
 
     fs.unlinkSync(draftFile);
     console.log(`✓ Deleted draft: ${draftFile}`);

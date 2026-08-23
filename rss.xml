@@ -6,6 +6,13 @@
     <description>Latest posts from Aadi's blog</description>
     
     <item>
+      <title>Week 1. Learning C++</title>
+      <link>https://aadi-my.web.app/blog/draft-1787495367568</link>
+      <guid>https://aadi-my.web.app/blog/draft-1787495367568</guid>
+      <pubDate>2026-08-23T00:00:00.000Z</pubDate>
+      <description>The beginning Finally, the odyssey begins. This is Week 1 of what is hopefully going to be a very long journey into embedded systems, control, and eventually robotics. This week, I</description>
+    </item>
+    <item>
       <title>How i made this blog</title>
       <link>https://aadi-my.web.app/blog/draft-1786859329236</link>
       <guid>https://aadi-my.web.app/blog/draft-1786859329236</guid>

@@ -64,7 +64,9 @@ function buildRssFeed(posts) {
   const items = posts
     .map((post) => {
       const link = `https://aadi-my.web.app/blog/${post.slug}`;
-      const pubDate = post.date ? new Date(post.date).toISOString() : new Date(0).toISOString();
+      const pubDate = post.date
+        ? new Date(post.date).toISOString()
+        : new Date(0).toISOString();
 
       return `
     <item>
