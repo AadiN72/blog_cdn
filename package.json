@@ -3,7 +3,7 @@
   "private": true,
   "type": "module",
   "bin": {
-    "manager": "scripts/manager.js"
+    "manager": "scripts/manager-cli.js"
   },
   "dependencies": {
     "dotenv": "^17.2.2",

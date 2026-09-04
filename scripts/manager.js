@@ -17,9 +17,13 @@ function createPrompt() {
 
 function runScript(scriptName, args = []) {
   return new Promise((resolve, reject) => {
-    const child = spawn(process.execPath, [path.join(__dirname, scriptName), ...args], {
-      stdio: "inherit",
-    });
+    const child = spawn(
+      process.execPath,
+      [path.join(__dirname, scriptName), ...args],
+      {
+        stdio: "inherit",
+      },
+    );
 
     child.once("error", reject);
     child.once("close", (code) => resolve(code ?? 1));
@@ -27,7 +31,9 @@ function runScript(scriptName, args = []) {
 }
 
 async function generateDraft(prompt) {
-  const title = (await prompt.question("Draft title (press Enter for Untitled Draft): ")).trim();
+  const title = (
+    await prompt.question("Draft title (press Enter for Untitled Draft): ")
+  ).trim();
 
   const args = [Date.now().toString()];
   if (title) {

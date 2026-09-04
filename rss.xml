@@ -6,6 +6,13 @@
     <description>Latest posts from Aadi's blog</description>
     
     <item>
+      <title>Week 2: Learning Finite State Machines</title>
+      <link>https://aadi-my.web.app/blog/draft-1788507138809</link>
+      <guid>https://aadi-my.web.app/blog/draft-1788507138809</guid>
+      <pubDate>2026-09-04T00:00:00.000Z</pubDate>
+      <description>I am a little late with this one. This week has been hectic: quizzes, midterms, and the SIH hackathon (a post on that will come later). So, this is the topic I meant to write about</description>
+    </item>
+    <item>
       <title>Week 1. Learning C++</title>
       <link>https://aadi-my.web.app/blog/draft-1787495367568</link>
       <guid>https://aadi-my.web.app/blog/draft-1787495367568</guid>
