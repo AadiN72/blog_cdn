@@ -6,6 +6,13 @@
     <description>Latest posts from Aadi's blog</description>
     
     <item>
+      <title>Week 3. Learning behaviour trees</title>
+      <link>https://aadi-my.web.app/blog/draft-1791611963733</link>
+      <guid>https://aadi-my.web.app/blog/draft-1791611963733</guid>
+      <pubDate>2026-11-04T00:00:00.000Z</pubDate>
+      <description>This week (totally not this month), I’ve been learning about behaviour trees. I’m especially interested in them because robots need to react to changing sensor data, handle tasks t</description>
+    </item>
+    <item>
       <title>Week 2: Learning Finite State Machines</title>
       <link>https://aadi-my.web.app/blog/draft-1788507138809</link>
       <guid>https://aadi-my.web.app/blog/draft-1788507138809</guid>
