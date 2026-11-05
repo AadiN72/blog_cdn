@@ -17,3 +17,11 @@ manager
 
 Choose `1` to create a draft or `2` to publish one. Publishing uses the existing
 draft selector and requires the GitHub settings in `.env`.
+
+The shared publisher is included at `scripts/shared`. Install its dependencies
+after cloning with:
+
+```powershell
+cd scripts/shared
+npm install
+```
